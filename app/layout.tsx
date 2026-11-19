@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: `%s · ${profile.name}`,
   },
   description:
-    "System designs for rewards & custody, flight booking and an AI data pipeline, prepared for HeyMax.",
+    "Senior Software Engineer portfolio: rewards & custody, flight booking and an AI data pipeline, prepared for HeyMax.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -51,7 +51,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </header>
         <main className="flex-1">{children}</main>
         <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-500">
-          Prepared by {profile.name} for the HeyMax engineering conversation.
+          Prepared by {profile.name} for the HeyMax engineering conversation,
+          with slightly more enthusiasm than strictly necessary.
         </footer>
       </body>
     </html>

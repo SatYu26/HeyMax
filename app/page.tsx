@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { fit, profile } from "@/content/profile";
+import { SneezeButton } from "@/components/SneezeButton";
+import { confession, fit, profile } from "@/content/profile";
 import { projects } from "@/content/projects";
 
 const linkLabels: Record<keyof typeof profile.links, string> = {
@@ -22,9 +23,12 @@ export default function Home() {
           Prepared for the HeyMax engineering conversation
         </p>
         <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-          Hi, I&apos;m {profile.name}. I build systems that move money, rewards
-          and bookings correctly.
+          Hi, I&apos;m {profile.name}. I ship reliable fintech, rewards and
+          travel systems, end to end.
         </h1>
+        <p className="mt-4 text-sm font-medium text-slate-500">
+          {profile.headline}
+        </p>
         <div className="mt-6 max-w-3xl space-y-4 text-lg leading-8 text-slate-600">
           {profile.intro.map((p) => (
             <p key={p}>{p}</p>
@@ -36,6 +40,12 @@ export default function Home() {
             className="rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-700"
           >
             Explore the projects
+          </Link>
+          <Link
+            href="#confession"
+            className="rounded-lg px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-slate-900"
+          >
+            Yes, this is a bit much ↓
           </Link>
           {links.map(([key, href]) => (
             <a
@@ -102,12 +112,12 @@ export default function Home() {
           Why I&apos;d be a good fit for HeyMax
         </h2>
         <p className="mt-3 max-w-3xl text-slate-600">
-          HeyMax turns everyday spending into Max Miles that transfer to airline
-          and hotel partners. The problems behind that (issuing a currency that
-          never expires, integrating many partners, and getting travel
-          redemptions right) are close to what I&apos;ve worked on.
+          HeyMax is looking for hands-on engineers who turn ambiguous product
+          ideas into reliable systems, use AI tools well, and own the outcome.
+          Here&apos;s how that maps to my work, with fintech and rewards
+          experience as a bonus.
         </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {fit.map((item) => (
             <div
               key={item.title}
@@ -117,6 +127,36 @@ export default function Home() {
               <p className="mt-2 leading-7 text-slate-600">{item.body}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section
+        id="confession"
+        className="scroll-mt-20 border-t border-slate-200 py-20"
+      >
+        <div className="rounded-3xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-amber-50 p-8 sm:p-10">
+          <p className="text-sm font-medium uppercase tracking-wider text-indigo-600">
+            A small confession
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">
+            {confession.title}
+          </h2>
+          <div className="mt-4 max-w-3xl space-y-3 leading-7 text-slate-700">
+            {confession.lines.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
+          <ul className="mt-6 space-y-2 text-sm text-slate-600">
+            {confession.facts.map((fact) => (
+              <li key={fact} className="flex gap-2">
+                <span aria-hidden>✦</span>
+                {fact}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8">
+            <SneezeButton />
+          </div>
         </div>
       </section>
     </div>

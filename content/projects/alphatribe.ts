@@ -79,6 +79,10 @@ export const alphaTribe: Project = {
           title: "Payment webhooks",
           body: "Cashfree and RevenueCat webhooks are signature-verified and processed once per orderId.",
         },
+        {
+          title: "Observability",
+          body: "Dashboards for queue length, time from exchange to feed, AI cost per day, alert delivery rate and feed latency. An alert fires if no new posts arrive for 30 minutes during market hours.",
+        },
       ],
     },
   ],

@@ -21,6 +21,28 @@ body {
   color: var(--foreground);
 }
 
+@keyframes sneeze-float {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), -90px);
+  }
+}
+
+.sneeze-mile {
+  animation: sneeze-float 1.2s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sneeze-mile {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 .diagram-canvas svg {
   width: 100%;
   height: 100%;

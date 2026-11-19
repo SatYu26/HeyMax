@@ -189,6 +189,30 @@ Company          ISSUANCE_POOL reserved = Σ customer reward Balance
         },
       ],
     },
+    {
+      id: "observability",
+      title: "Observability: knowing money is right",
+      intro:
+        "In a rewards system, an incident is often silent: no error, just a balance that drifts. So the alerts focus on money being correct, not only on services being up.",
+      points: [
+        {
+          title: "Backing ratio",
+          body: "(ISSUANCE_POOL + TREASURY held at partners) ÷ (rewards owed + custody balances owed). Alert below 100%.",
+        },
+        {
+          title: "Drift",
+          body: "Company balance vs partner balance every hour, and customer balance mismatches from the nightly check.",
+        },
+        {
+          title: "Stuck money",
+          body: "Transactions in CREATED / PROCESSING for over 30 minutes, and any SELL_GOLD_AND_REVERSE_FAILED.",
+        },
+        {
+          title: "Reward pipeline",
+          body: "Age of the oldest unpublished outbox row, queue depth, worker retry rate, and any event in the dead-letter queue.",
+        },
+      ],
+    },
   ],
   tradeoffs: [
     {
